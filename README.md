@@ -26,7 +26,7 @@ Automate capture of Typeform submissions into Pipedrive, with:
 - Conditional creation of missing records  
 - Final lead creation linking person + org  
 
-_No manual data entry. No duplicates. Fully declarative Make.com scenario._
+_No manual data entry. No duplicates._
 
 ---
 
