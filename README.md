@@ -1,5 +1,14 @@
 # Automated Lead Management (Typeform → Make.com → Pipedrive)
 
+<div>
+    <a href="https://www.loom.com/share/d2b87527fd99432c923a878309778fb8">
+      <p>Automated Lead Management System - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/d2b87527fd99432c923a878309778fb8">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/d2b87527fd99432c923a878309778fb8-afc7e458f55f8bd7-full-play.gif">
+    </a>
+  </div>
+
 ## Table of Contents
 1. [Overview](#overview)  
 2. [Architecture](#architecture)  
