@@ -53,7 +53,7 @@ _No manual data entry. No duplicates. Fully declarative Make.com scenario._
 ## Configure Connections
 
    - Typeform → [Connect Typeform to Make](https://apps.make.com/typeform)
-   - PDF.co API Key → [Connect Pipedrive CRM to Make](https://apps.make.com/pipedrive)
+   - Pipedrive CRM → [Connect Pipedrive CRM to Make](https://apps.make.com/pipedrive)
 
 ---
 
