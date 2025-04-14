@@ -1,2 +1,98 @@
-# Automated-Lead-Management-System
-This project automates lead capture and CRM integration to eliminate manual data entry, prevent duplicates, and streamline sales workflows. It uses Typeform to collect lead info and Pipedrive as the CRM. The Make.com scenario checks for existing leads, adds new contacts and organizations, and creates leads in Pipedrive automatically.
+# Automated Lead Management (Typeform → Make.com → Pipedrive)
+
+## Table of Contents
+1. [Overview](#overview)  
+2. [Architecture](#architecture)  
+3. [Prerequisites](#prerequisites)  
+4. [Setup & Configuration](#setup--configuration)  
+5. [Workflow Steps](#workflow-steps)  
+6. [Testing](#testing)  
+7. [Example Runs](#example-runs)  
+
+---
+
+## Overview
+Automate capture of Typeform submissions into Pipedrive, with:
+- Duplicate detection for **Contacts** & **Organizations**  
+- Conditional creation of missing records  
+- Final lead creation linking person + org  
+
+_No manual data entry. No duplicates. Fully declarative Make.com scenario._
+
+---
+
+## Architecture
+```text
+[Typeform] ──▶ Make.com Webhook
+    ├─ Search Person by email
+    ├─ Search Org by name
+    ├─ ▶ Router:
+    │    ├─ New Org? ──▶ Create Org ──▶ Set orgID
+    │    ├─ New Person? ──▶ Create Person (uses orgID) ──▶ Set personID
+    │    └─ ▶ Create Lead (uses personID + orgID)
+```
+
+---
+
+## Prerequisites
+- Make.com account  
+- Typeform form with fields: `first_name`, `last_name`, `email`, `phone`, `company name`  
+- Pipedrive account + API token  
+
+---
+
+## Setup & Configuration
+
+1. **Typeform**  
+   - Create form, note **Form ID**.  
+2. **Make.com**  
+   - New Scenario → **Typeform** webhook trigger.  
+   - Connect Pipedrive (API token).  
+3. **Environment Variables**  
+   ```bash
+   export PIPEDRIVE_API_TOKEN=<your_token>
+   export MAKE_WEBHOOK_URL=<your_make_webhook>
+   ```
+4. **Scenario Variables**  
+   - `orgID`, `personID` (initialized empty)  
+
+---
+
+## Workflow Steps
+
+1. **Trigger**  
+   - Typeform webhook fires on submission.  
+2. **Search for Duplicates**  
+   - Module A: Search Person by `email` (exact match).  
+   - Module B: Search Organization by `company` (exact match).  
+3. **Router Logic**  
+   - **Route 1**: `orgID` empty → Create Org → Set `orgID`.  
+   - **Route 2**: `personID` empty → Create Person (map `orgID`) → Set `personID`.  
+   - **Route 3**: Both IDs present → Create Lead (map `personID`, `orgID`).  
+4. **Lead Creation**  
+   - Final module: Create Lead in Pipedrive.  
+
+---
+
+## Testing
+
+1. Submit test entries in Typeform (e.g. via Make’s “Run once” + “Use existing data”).  
+2. Verify in Pipedrive UI under **Contacts**, **Organizations**, **Leads**.  
+3. Edge cases:  
+   - Same email, new company  
+   - Same company, new email  
+   - Existing both → only lead created  
+
+---
+
+## Example Runs
+
+| Test Case                       | Result                                   |
+|---------------------------------|------------------------------------------|
+| New “Foo Co” + new “Alice”      | Org + Person + Lead                     |
+| Existing “Foo Co” + new “Bob”   | Person + Lead                            |
+| Existing “Foo Co” + existing    | Lead only                                |
+| Existing “Alice” switches org   | New Org + Lead (person unchanged)        |
+
+---
+
