@@ -13,7 +13,7 @@
 1. [Overview](#overview)  
 2. [Architecture](#architecture)  
 3. [Prerequisites](#prerequisites)  
-4. [Configure Connections](#configure-connections)  
+4. [Setup & Deployment](#-setup--deployment) 
 5. [Workflow Steps](#workflow-steps)  
 6. [Testing](#testing)  
 7. [Example Runs](#example-runs)  
@@ -50,8 +50,18 @@ _No manual data entry. No duplicates._
 
 ---
 
-## Configure Connections
+## Setup & Deployment
 
+### Clone Repo
+```bash
+git clone https://github.com/your-username/automated-lead-management.git
+cd automated-lead-management
+```
+
+### Import Make.com Scenario
+1. In Make.com go to **Scenarios** → **Create a new scenario** → **Import**  
+2. Upload `Automated Lead Management.json`
+3. Configure Connections: 
    - Typeform → [Connect Typeform to Make](https://apps.make.com/typeform)
    - Pipedrive CRM → [Connect Pipedrive CRM to Make](https://apps.make.com/pipedrive)
 
