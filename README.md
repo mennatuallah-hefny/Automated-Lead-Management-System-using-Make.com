@@ -4,7 +4,7 @@
 1. [Overview](#overview)  
 2. [Architecture](#architecture)  
 3. [Prerequisites](#prerequisites)  
-4. [Setup & Configuration](#setup--configuration)  
+4. [Configure Connections](#configure-connections)  
 5. [Workflow Steps](#workflow-steps)  
 6. [Testing](#testing)  
 7. [Example Runs](#example-runs)  
@@ -41,27 +41,17 @@ _No manual data entry. No duplicates. Fully declarative Make.com scenario._
 
 ---
 
-## Setup & Configuration
+## Configure Connections
 
-1. **Typeform**  
-   - Create form, note **Form ID**.  
-2. **Make.com**  
-   - New Scenario → **Typeform** webhook trigger.  
-   - Connect Pipedrive (API token).  
-3. **Environment Variables**  
-   ```bash
-   export PIPEDRIVE_API_TOKEN=<your_token>
-   export MAKE_WEBHOOK_URL=<your_make_webhook>
-   ```
-4. **Scenario Variables**  
-   - `orgID`, `personID` (initialized empty)  
+   - Typeform → [Connect Typeform to Make](https://apps.make.com/typeform)
+   - PDF.co API Key → [Connect Pipedrive CRM to Make](https://apps.make.com/pipedrive)
 
 ---
 
 ## Workflow Steps
 
 1. **Trigger**  
-   - Typeform webhook fires on submission.  
+   - Typeform fires on submission.  
 2. **Search for Duplicates**  
    - Module A: Search Person by `email` (exact match).  
    - Module B: Search Organization by `company` (exact match).  
