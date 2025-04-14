@@ -1,0 +1,1260 @@
+{
+    "name": "Automated Lead Management System",
+    "flow": [
+        {
+            "id": 1,
+            "module": "typeform:WatchEventsWithResponses",
+            "version": 2,
+            "parameters": {
+                "__IMTHOOK__": 2056394
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 300
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTHOOK__": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "My Typeform Events webhook"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTHOOK__",
+                        "type": "hook:typeform",
+                        "label": "Webhook",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "form_id",
+                        "type": "text",
+                        "label": "Form ID"
+                    },
+                    {
+                        "name": "event",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Event"
+                    },
+                    {
+                        "name": "token",
+                        "type": "text",
+                        "label": "Token"
+                    },
+                    {
+                        "name": "submitted_at",
+                        "type": "date",
+                        "label": "Submitted at"
+                    },
+                    {
+                        "name": "landed_at",
+                        "type": "date",
+                        "label": "Landed at"
+                    },
+                    {
+                        "name": "calculated",
+                        "spec": [
+                            {
+                                "name": "score",
+                                "type": "number",
+                                "label": "Score"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Calculated"
+                    },
+                    {
+                        "name": "definition",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Title"
+                            },
+                            {
+                                "name": "fields",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "title",
+                                            "type": "text",
+                                            "label": "Title"
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "Type"
+                                        },
+                                        {
+                                            "name": "ref",
+                                            "type": "text",
+                                            "label": "Internal Name"
+                                        },
+                                        {
+                                            "name": "allow_multiple_selections",
+                                            "type": "boolean",
+                                            "label": "Allow Multiple Selections"
+                                        },
+                                        {
+                                            "name": "allow_other_choice",
+                                            "type": "boolean",
+                                            "label": "Allow Other Choice"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Fields"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Definition"
+                    },
+                    {
+                        "name": "answers",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "spec": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "text",
+                                        "label": "Type"
+                                    },
+                                    {
+                                        "name": "ref",
+                                        "type": "text",
+                                        "label": "Internal Name"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Field"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "text",
+                                "type": "text",
+                                "label": "Text"
+                            },
+                            {
+                                "name": "email",
+                                "type": "email",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "boolean",
+                                "type": "boolean",
+                                "label": "Boolean"
+                            },
+                            {
+                                "name": "number",
+                                "type": "number",
+                                "label": "Number"
+                            },
+                            {
+                                "name": "date",
+                                "type": "date",
+                                "label": "Date"
+                            },
+                            {
+                                "name": "long_text",
+                                "type": "text",
+                                "label": "Long Text"
+                            },
+                            {
+                                "name": "short_text",
+                                "type": "text",
+                                "label": "Short Text"
+                            },
+                            {
+                                "name": "file_url",
+                                "type": "url",
+                                "label": "File URL"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "phone_number",
+                                "type": "text",
+                                "label": "Phone Number"
+                            },
+                            {
+                                "name": "choice",
+                                "spec": [
+                                    {
+                                        "name": "label",
+                                        "type": "text",
+                                        "label": "Label"
+                                    },
+                                    {
+                                        "name": "other",
+                                        "type": "text",
+                                        "label": "Other"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Choice"
+                            },
+                            {
+                                "name": "choices",
+                                "spec": [
+                                    {
+                                        "name": "labels",
+                                        "spec": {
+                                            "type": "text"
+                                        },
+                                        "type": "array",
+                                        "label": "Labels"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Choices"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Answers"
+                    },
+                    {
+                        "name": "mappable_answers",
+                        "spec": [
+                            {
+                                "name": "c0cee108-68aa-45ca-ab8d-a4a6ac3fc6ce",
+                                "type": "text",
+                                "label": "First Name"
+                            },
+                            {
+                                "name": "383b123b-e645-4b0e-b857-a685dcce1113",
+                                "type": "text",
+                                "label": "Last Name"
+                            },
+                            {
+                                "name": "ed7894ba-8180-4cf5-93e2-5adc8853c841",
+                                "type": "email",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "0c034882-ae02-4e87-ad75-716e8ea9c0c6",
+                                "type": "text",
+                                "label": "Phone"
+                            },
+                            {
+                                "name": "6ce19f48-af43-48a0-a1fa-bc42966eeec5",
+                                "type": "text",
+                                "label": "Company Name"
+                            },
+                            {
+                                "name": "d462174c-c0e3-4f7b-a9aa-0f129f75c524",
+                                "type": "text",
+                                "label": "Message (We reply within 24 hours. SUN-THU, 9:00-17:00 GMT+2)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Mappable Answers"
+                    },
+                    {
+                        "name": "hidden",
+                        "spec": [],
+                        "type": "collection",
+                        "label": "Hidden"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "pipedrive:searchPersons",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 7151675
+            },
+            "mapper": {
+                "term": "{{1.mappable_answers.`ed7894ba-8180-4cf5-93e2-5adc8853c841`}}",
+                "limit": "1",
+                "fields": [
+                    "email"
+                ],
+                "exact_match": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 300
+                },
+                "restore": {
+                    "expect": {
+                        "fields": {
+                            "mode": "chose"
+                        },
+                        "exact_match": {
+                            "mode": "chose"
+                        },
+                        "organization_id": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "pipedrive-apikey"
+                            },
+                            "label": "My Pipedrive API token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "term",
+                        "type": "text",
+                        "label": "Term",
+                        "required": true
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "custom_fields",
+                                "notes",
+                                "email",
+                                "phone",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "exact_match",
+                        "type": "boolean",
+                        "label": "Exact Match"
+                    },
+                    {
+                        "name": "organization_id",
+                        "type": "select",
+                        "label": "Organization ID"
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 16,
+            "module": "pipedrive:searchOrganizations",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 7151675
+            },
+            "mapper": {
+                "term": "{{1.mappable_answers.`6ce19f48-af43-48a0-a1fa-bc42966eeec5`}}",
+                "limit": "1",
+                "fields": [
+                    "name"
+                ],
+                "exact_match": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 300
+                },
+                "restore": {
+                    "expect": {
+                        "fields": {
+                            "mode": "chose"
+                        },
+                        "exact_match": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "pipedrive-apikey"
+                            },
+                            "label": "My Pipedrive API token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "term",
+                        "type": "text",
+                        "label": "Term",
+                        "required": true
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "address",
+                                "custom_fields",
+                                "notes",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "exact_match",
+                        "type": "boolean",
+                        "label": "Exact Match"
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "org_id",
+                        "value": "{{16.id}}"
+                    },
+                    {
+                        "name": "person_id",
+                        "value": "{{2.id}}"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 300
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
+                        "variables": {
+                            "items": [
+                                null,
+                                null
+                            ]
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "org_id",
+                        "type": "any",
+                        "label": "org_id"
+                    },
+                    {
+                        "name": "person_id",
+                        "type": "any",
+                        "label": "person_id"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 300
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 18,
+                            "module": "pipedrive:CreateOrganization",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 7151675
+                            },
+                            "filter": {
+                                "name": "organization does not exist",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{17.org_id}}",
+                                            "o": "notexist"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "name": "{{1.mappable_answers.`6ce19f48-af43-48a0-a1fa-bc42966eeec5`}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": 0
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "visible_to": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "pipedrive-apikey"
+                                            },
+                                            "label": "My Pipedrive API token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "owner_id",
+                                        "type": "number",
+                                        "label": "Owner"
+                                    },
+                                    {
+                                        "name": "visible_to",
+                                        "type": "select",
+                                        "label": "Visible to",
+                                        "validate": {
+                                            "enum": [
+                                                "1",
+                                                "3",
+                                                "5",
+                                                "7"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "add_time",
+                                        "type": "date",
+                                        "label": "Add time"
+                                    },
+                                    {
+                                        "name": "address",
+                                        "type": "text",
+                                        "label": "Address"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 20,
+                            "module": "util:SetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "name": "org_id",
+                                "scope": "roundtrip",
+                                "value": "{{18.id}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1800,
+                                    "y": 0
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "any",
+                                        "label": "Variable value"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "org_id",
+                                        "type": "any",
+                                        "label": "org_id"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 21,
+                            "module": "util:GetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "filter": {
+                                "name": "person does not exist",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{17.person_id}}",
+                                            "o": "notexist"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "name": "org_id"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": 300
+                                },
+                                "restore": {},
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "org_id",
+                                        "type": "any",
+                                        "label": "org_id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 22,
+                            "module": "pipedrive:CreatePerson",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 7151675
+                            },
+                            "mapper": {
+                                "name": "{{1.mappable_answers.`c0cee108-68aa-45ca-ab8d-a4a6ac3fc6ce`}} {{1.mappable_answers.`383b123b-e645-4b0e-b857-a685dcce1113`}}",
+                                "email": [
+                                    {
+                                        "label": "Work",
+                                        "value": "{{1.mappable_answers.`ed7894ba-8180-4cf5-93e2-5adc8853c841`}}"
+                                    }
+                                ],
+                                "org_id": "{{21.org_id}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1800,
+                                    "y": 300
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "email": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "primary": {
+                                                        "mode": "chose"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "phone": {
+                                            "mode": "chose"
+                                        },
+                                        "visible_to": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "pipedrive-apikey"
+                                            },
+                                            "label": "My Pipedrive API token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "owner_id",
+                                        "type": "number",
+                                        "label": "Owner"
+                                    },
+                                    {
+                                        "name": "org_id",
+                                        "type": "number",
+                                        "label": "Organization"
+                                    },
+                                    {
+                                        "name": "email",
+                                        "spec": [
+                                            {
+                                                "name": "label",
+                                                "type": "text",
+                                                "label": "Label"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "primary",
+                                                "type": "boolean",
+                                                "label": "Is Primary"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Emails"
+                                    },
+                                    {
+                                        "name": "phone",
+                                        "spec": [
+                                            {
+                                                "name": "label",
+                                                "type": "text",
+                                                "label": "Label"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "primary",
+                                                "type": "boolean",
+                                                "label": "Is Primary"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Phones"
+                                    },
+                                    {
+                                        "name": "add_time",
+                                        "type": "date",
+                                        "label": "Add time"
+                                    },
+                                    {
+                                        "name": "visible_to",
+                                        "type": "select",
+                                        "label": "Visible to"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 23,
+                            "module": "util:SetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "name": "person_id",
+                                "scope": "roundtrip",
+                                "value": "{{22.id}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 2100,
+                                    "y": 300
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "any",
+                                        "label": "Variable value"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "person_id",
+                                        "type": "any",
+                                        "label": "person_id"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 24,
+                            "module": "util:GetVariables",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "variables": [
+                                    "org_id",
+                                    "person_id"
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": 600
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "variables": {
+                                            "items": [
+                                                null,
+                                                null
+                                            ]
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "variables",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "text",
+                                            "label": "Variable name",
+                                            "required": true
+                                        },
+                                        "type": "array",
+                                        "label": "Variables"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "org_id",
+                                        "type": "any",
+                                        "label": "org_id"
+                                    },
+                                    {
+                                        "name": "person_id",
+                                        "type": "any",
+                                        "label": "person_id"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 25,
+                            "module": "pipedrive:createLead",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 7151675
+                            },
+                            "mapper": {
+                                "title": "{{1.mappable_answers.`c0cee108-68aa-45ca-ab8d-a4a6ac3fc6ce`}}\n{{1.mappable_answers.`383b123b-e645-4b0e-b857-a685dcce1113`}}\n|\n{{1.mappable_answers.`6ce19f48-af43-48a0-a1fa-bc42966eeec5`}}\nLead",
+                                "value": {},
+                                "person_id": "{{24.person_id}}",
+                                "organization_id": "{{24.org_id}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1800,
+                                    "y": 600
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "owner_id": {
+                                            "mode": "chose"
+                                        },
+                                        "was_seen": {
+                                            "mode": "chose"
+                                        },
+                                        "label_ids": {
+                                            "mode": "chose"
+                                        },
+                                        "visible_to": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "pipedrive-apikey"
+                                            },
+                                            "label": "My Pipedrive API token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "title",
+                                        "type": "text",
+                                        "label": "Title",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "owner_id",
+                                        "type": "select",
+                                        "label": "Owner"
+                                    },
+                                    {
+                                        "name": "person_id",
+                                        "type": "number",
+                                        "label": "Person"
+                                    },
+                                    {
+                                        "name": "organization_id",
+                                        "type": "number",
+                                        "label": "Organization"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "spec": [
+                                            {
+                                                "name": "amount",
+                                                "type": "number",
+                                                "label": "Amount"
+                                            },
+                                            {
+                                                "name": "currency",
+                                                "type": "text",
+                                                "label": "Currency"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Potential Value"
+                                    },
+                                    {
+                                        "name": "expected_close_date",
+                                        "type": "date",
+                                        "label": "Expected Close Date"
+                                    },
+                                    {
+                                        "name": "label_ids",
+                                        "spec": [
+                                            {
+                                                "name": "label_id",
+                                                "type": "text",
+                                                "label": "Label GUID"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Labels"
+                                    },
+                                    {
+                                        "name": "visible_to",
+                                        "type": "select",
+                                        "label": "Visible to"
+                                    },
+                                    {
+                                        "name": "was_seen",
+                                        "type": "boolean",
+                                        "label": "Was Seen"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "title",
+                                        "type": "text",
+                                        "label": "Title"
+                                    },
+                                    {
+                                        "name": "owner_id",
+                                        "type": "number",
+                                        "label": "Owner ID"
+                                    },
+                                    {
+                                        "name": "creator_id",
+                                        "type": "number",
+                                        "label": "Creator ID"
+                                    },
+                                    {
+                                        "name": "label_ids",
+                                        "type": "array",
+                                        "label": "Label IDs"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "spec": [
+                                            {
+                                                "name": "amount",
+                                                "type": "number",
+                                                "label": "Amount"
+                                            },
+                                            {
+                                                "name": "currency",
+                                                "type": "text",
+                                                "label": "Currency"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Value"
+                                    },
+                                    {
+                                        "name": "expected_close_date",
+                                        "type": "text",
+                                        "label": "Expected Close Date"
+                                    },
+                                    {
+                                        "name": "expected_close_date-raw",
+                                        "type": "text",
+                                        "label": "Expected Close Date (raw)"
+                                    },
+                                    {
+                                        "name": "person_id",
+                                        "type": "number",
+                                        "label": "Person ID"
+                                    },
+                                    {
+                                        "name": "organization_id",
+                                        "type": "text",
+                                        "label": "Organization ID"
+                                    },
+                                    {
+                                        "name": "is_archived",
+                                        "type": "boolean",
+                                        "label": "Is Archived"
+                                    },
+                                    {
+                                        "name": "source_name",
+                                        "type": "text",
+                                        "label": "Source Name"
+                                    },
+                                    {
+                                        "name": "was_seen",
+                                        "type": "boolean",
+                                        "label": "Was Seen"
+                                    },
+                                    {
+                                        "name": "next_activity_id",
+                                        "type": "text",
+                                        "label": "Next Activity ID"
+                                    },
+                                    {
+                                        "name": "add_time",
+                                        "type": "date",
+                                        "label": "Add Time"
+                                    },
+                                    {
+                                        "name": "update_time",
+                                        "type": "date",
+                                        "label": "Update Time"
+                                    },
+                                    {
+                                        "name": "visible_to",
+                                        "type": "text",
+                                        "label": "Visible To"
+                                    },
+                                    {
+                                        "name": "cc_email",
+                                        "type": "text",
+                                        "label": "CC Email"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
